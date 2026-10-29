@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Practice Tasks</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(68, 1, 78);
+        }
+
+        section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px #ccc;
+        }
+
+        h2 {
+            color: rgb(124, 2, 83);
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+
+        input {
+            width: 100%;
+        }
+
+        button {
+            background-color: rgb(185, 17, 157);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(213, 213, 222);
+        }
+
+        p {
+            overflow-wrap: anywhere;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Practice Tasks</h1>
+
+    <!-- Task 1: Age to Days -->
+    <section>
+        <h2>1. Age to Days Converter</h2>
+
+        <input type="number" id="age" placeholder="Enter age in years">
+        <button onclick="ageToDays()">Convert</button>
+
+        <p id="ageResult"></p>
+    </section>
+
+    <!-- Task 2: Hours to Seconds -->
+    <section>
+        <h2>2. Hours to Seconds Converter</h2>
+
+        <input type="number" id="hours" placeholder="Enter hours">
+        <button onclick="hoursToSeconds()">Convert</button>
+
+        <p id="hoursResult"></p>
+    </section>
+
+
+    <!-- Task 4: Capitalize Name -->
+    <section>
+        <h2>4. Capitalize First Letter of Name</h2>
+
+        <input type="text" id="name"
+               placeholder="Enter your name in lowercase">
+
+        <button onclick="capitalizeName()">Capitalize</button>
+
+        <p id="nameResult"></p>
+    </section>
+
+    <!-- Task 5: BMI Calculator -->
+    <section>
+        <h2>5. BMI Calculator</h2>
+
+        <input type="number" step="any" id="weight"
+               placeholder="Enter weight in kilograms">
+
+        <input type="number" step="any" id="height"
+               placeholder="Enter height in meters (e.g. 1.75)">
+
+        <button onclick="calculateBMI()">Calculate BMI</button>
+
+        <p id="bmiResult"></p>
+    </section>
+
+  
+
+
+    <script>
+        // Age to Days Converter
+        function ageToDays() {
+            let age = document.getElementById("age").value;
+
+            if (age === "" || Number(age) < 0) {
+                document.getElementById("ageResult").innerText =
+                    "Please enter a valid age.";
+                return;
+            }
+else{
+            let days = Number(age) * 365;
+
+            document.getElementById("ageResult").innerText =
+                "Age in days: " + days;
+        }
+        }
+
+        //  Hours to Seconds Converter
+        function hoursToSeconds() {
+            let hours = document.getElementById("hours").value;
+
+            if (hours === "" || Number(hours) < 0) {
+                document.getElementById("hoursResult").innerText =
+                    "Please enter valid hours.";
+                return;
+            }
+
+            let seconds = Number(hours) * 3600;
+
+            document.getElementById("hoursResult").innerText =
+                "Seconds: " + seconds;
+        }
+
+
+        //  Capitalize the first letter
+        function capitalizeName() {
+            let name = document.getElementById("name").value.trim();
+
+            if (name === "") {
+                document.getElementById("nameResult").innerText =
+                    "Please enter your name.";
+                return;
+            }
+            else{
+
+            let result = name.charAt(0).toUpperCase() +
+                         name.slice(1);
+
+            document.getElementById("nameResult").innerText = result;
+        }
+        }
+
+        //  BMI Calculator
+        function calculateBMI() {
+            let weight = Number(document.getElementById("weight").value);
+            let height = Number(document.getElementById("height").value);
+
+            if (
+                document.getElementById("weight").value === "" ||
+                document.getElementById("height").value === "" ||
+                weight <= 0 || height <= 0
+            ) {
+                document.getElementById("bmiResult").innerText =
+                    "Please enter a valid weight and height.";
+                return;
+            }
+
+            let bmi = weight / (height * height);
+
+            document.getElementById("bmiResult").innerText =
+                "Your BMI is: " + bmi.toFixed(2);
+        }
+
+    </script>
+
+</body>
+</html>
